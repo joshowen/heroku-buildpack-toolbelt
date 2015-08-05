@@ -54,11 +54,7 @@ mv heroku-client/* .
 rmdir heroku-client
 
 # Add heroku toolbelt to the PATH
-echo "Adding heroku toolbelt to PATH"
-mkdir -p "$BUILD_DIR/.profile.d"
-cat > "$BUILD_DIR/.profile.d/path.sh" <<EOF
-export PATH=$PATH:/app/vendor/heroku-toolbelt/bin/
-EOF
+echo "-----> Configuring runtime environment"
+echo 'export PATH="$PATH:$HOME/vendor/heroku-toolbelt/bin"' > $BUILD_DIR/.profile.d/heroku-toolbelt.sh
 
-
-echo "-----> heroku toolbelt installation done"
+echo "-----> Heroku toolbelt installation done"
